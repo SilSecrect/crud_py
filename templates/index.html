@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela Planilha</title>
+    <script
+      src="https://kit.fontawesome.com/7271b5d267.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="favinco.png" type="image/x-icon" />
+
+  </head>
+  <body>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: cadetblue;
+  }
+  .rom{
+  display:none;
+  }
+  a{
+  color: white;
+  text-decoration:none;
+  }
+  header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  header nav.header {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+    margin-right: 20px;
+  }
+  header img.image-logo {
+    height: 60px;
+    margin-left: 30px;
+    border-radius: 50px;
+  }
+  nav a.navbar {
+    color: aliceblue;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    background-color: #0f0f0f;
+    padding: 10px 20px;
+    border-radius: 900px 80px 0px;
+  }
+
+  /* comeca a estilização no corpo*/
+
+  section.corpo-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 90%;
+    margin: 5vh auto;
+    padding: 50px;
+    background-color: white;
+    gap: 20px;
+  }
+  .records {
+    text-align: center;
+    width: 95%;
+    user-select: none;
+    text-align: left;
+  }
+
+  .records th {
+    margin-left: 30px;
+    height: 50px;
+    background-color: black;
+    color: aliceblue;
+    padding-left: 6px;
+    font-size: 15px;
+    border: 1px solid cadetblue;
+  }
+  .records td {
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 13px;
+
+  }
+  b {
+    display: none;
+  }
+
+  th:last-child,
+  td:last-child {
+    padding: 0;
+    min-width: 140px;
+    text-align: center;
+  }
+
+  .records tr:hover {
+    background-color: rgba(0, 0, 0, 0.123);
+  }
+  strong {
+    display: none;
+  }
+
+  .button {
+    border-style: none;
+    height: 40px;
+    padding: 6px 12px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: box-shadow 0.6s ease;
+  }
+
+  .button.blue {
+    background-color: cadetblue;
+  }
+
+  button.green {
+    background-color: #0f0f0f;
+  }
+
+  button.red {
+    background-color: cadetblue;
+  }
+
+  .button:hover {
+    box-shadow: inset 200px 0 0 #faf9f955;
+  }
+
+  /* começa o responsivo mobile*/
+
+  @media screen and (max-width: 999px) {
+    strong {
+      display: block;
+    }
+    section.corpo-section {
+      width: 85%;
+      margin: auto;
+      padding: 50px;
+      background-color: white;
+      gap: 20px;
+    }
+    .records thead {
+      display: none;
+    }
+    .records tr {
+      width: 20%;
+      box-shadow: 0 1px 3px black;
+      margin-top: 10px;
+      align-items: center;
+    }
+    b {
+      display: flex;
+    }
+    .records td:not(:first-child) {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .records td {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    .records tr:hover {
+      background-color: inherit;
+    }
+  }
+
+  @media (max-width: 680px) {
+    section.corpo-section {
+      width: 80%;
+      margin: 10px auto;
+      border-radius: 3px;
+      padding: 50px;
+      background-color: white;
+      gap: 20px;
+    }
+    .icon {
+      display: none;
+    }
+    .modal {
+      top: 100%;
+      transition: all 1s ease;
+    }
+    .modal.active {
+      top: 0;
+    }
+    .modal-content {
+      margin: 0;
+      width: 100%;
+      position: fixed;
+    }
+    .modal-field {
+      width: 100%;
+    }
+      .modal-footer {
+    Position:absolute;
+    bottom: 90px;
+  }
+  }
+
+  @media screen and (max-width: 520px) {
+    section.corpo-section {
+      width: 79%;
+      align-items: center;
+    }
+
+
+    header img.image-logo {
+      height: 40px;
+      margin-top: 10px;
+
+    }
+    nav a.navbar {
+      color: aliceblue;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 13px;
+      background-color: #0f0f0f;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+
+
+  }
+  @media screen and (max-width: 490px) {
+    section.corpo-section {
+      width: 70%;
+
+    }
+
+  }
+
+  </style>
+    <header>
+      <img src="logo.png" class="image-logo" alt="" />
+      <nav class="header">
+        <li>
+          <a href="#" class="navbar"
+            >Home <i class="fa-solid fa-house fa-beat icon"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#" class="navbar"
+            >Contato <i class="fa-solid fa-phone-flip fa-beat icon"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#" class="navbar"
+            >Github <i class="fa-brands fa-github fa-beat icon"></i
+          ></a>
+        </li>
+      </nav>
+    </header>
+    <section class="corpo-section">
+      <button type="button" class="button blue mobile"><a href="{{ url_for('input_data') }}" >Nova Lista </a>
+         <i class="fa-regular fa-rectangle-list fa-beat"></i>
+      </button>
+      <table id="table" class="records">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Celular</th>
+            <th>CEP</th>
+            <th>UF</th>
+            <th>Cidade</th>
+            <th>Bairro</th>
+            <th>Endereço</th>
+            <th>Nº</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody id="tablebody">
+
+       {% for clients in data %}
+          <tr id="tr">
+            <th scope="row" class="rom" >{{ loop.index }}</th>
+            <td><strong>Nome - </strong>{{ clients.nome }}</td>
+            <td><strong>Email - </strong>{{ clients.email }}</td>
+            <td><strong>Celular - </strong>{{ clients.celular }}</td>
+            <td><strong>CEP - </strong>{{ clients.cep }}</td>
+            <td><strong>UF - </strong>{{ clients.uf }}</td>
+            <td><strong>Cidade - </strong>{{ clients.cidade }}</td>
+            <td><strong>Bairro - </strong>{{ clients.bairro }}</td>
+            <td><strong>Endereço - </strong>{{ clients.endereco }}</td>
+            <td><strong>Nº - </strong>{{ clients.numero }}</td>
+            <td>
+              <button type="button" class="button green"  >
+                <a href="{{ url_for('edit_data', id=clients.id) }}">Editar</a>
+              </button>
+              <button type="button" class="button red" >
+                <a href="{{ url_for('delete', id=clients.id) }}"  onclick="return confirm('Deseja realmente excluir esse cliente?')" >excluir</a>
+              </button>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+    </section>
+  </body>
+</html>

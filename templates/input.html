@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela Planilha</title>
+    <script
+      src="https://kit.fontawesome.com/7271b5d267.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+<body>
+<style>
+ /*Comeca o modal */
+
+ a{
+ color:white;
+ text-decoration:none;
+ }
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000090;
+  }
+
+  .modal.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50vw;
+    height: 580px;
+    margin: 20px auto;
+    padding-bottom: 20px;
+    background-color: white;
+  }
+
+  .modal-header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+    background-color: #0f0f0f;
+  }
+  header h2 {
+    color: aliceblue;
+
+    font-size: 15px;
+  }
+
+  .modal-close {
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    background-color: aliceblue;
+  }
+
+  .modal-close:hover {
+    background-color: cadetblue;
+    color: white;
+  }
+
+  .modal-form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .modal-field {
+    width: calc(50% - 10px);
+    height: 20px;
+    outline-style: none;
+    border: none;
+    padding: 2px;
+    border-bottom: 1px solid;
+    outline: none;
+    text-align:center;
+  }
+
+  .modal-field::placeholder {
+    color: #ccc;
+  }
+
+  .modal-footer {
+    Position:absolute;
+    bottom: 150px;
+  }
+
+  .button {
+    border-style: none;
+    height: 40px;
+    padding: 6px 12px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: box-shadow 0.6s ease;
+  }
+
+  .button.blue {
+    background-color: cadetblue;
+  }
+
+  button.green {
+    background-color: #0f0f0f;
+  }
+
+  button.red {
+    background-color: cadetblue;
+  }
+
+  .button:hover {
+    box-shadow: inset 200px 0 0 #faf9f955;
+  }
+
+  @media screen and (max-width:820px){
+    .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70vw;
+    height: 580px;
+    margin: 20px auto;
+    padding-bottom: 20px;
+    background-color: white;
+  }
+  }
+    @media screen and (max-width:570px){
+    .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90vw;
+    height: 580px;
+    margin: 20px auto;
+    padding-bottom: 20px;
+    background-color: white;
+  }
+  }
+
+</style>
+<div class="modal" id="modal">
+        <div class="modal-content">
+          <header class="modal-header">
+            <h2>Novo Cliente</h2>
+          </header>
+
+          <form class="modal-form" id="form" action="{{ url_for('input_data') }}"  method="POST">
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Nome do Cliente"
+              name="nome"
+              id="nome"
+              required
+            />
+            <input
+              type="email"
+              class="modal-field"
+              placeholder="e-mail do Cliente"
+              name="email"
+              id="email"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Celular do Cliente"
+              name="celular"
+              id="celular"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Cep do Cliente"
+              name="cep"
+              id="cep"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="UF do Cliente"
+              name="uf"
+              id="uf"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Cidade do Cliente"
+              name="cidade"
+              id="cidade"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Bairro do Cliente"
+              name="bairro"
+              id="bairro"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Endereço do Cliente"
+              name="endereco"
+              id="endereco"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Nº do Cliente"
+              name="numero"
+              id="numero"
+              required
+            />
+
+          <footer class="modal-footer">
+            <button  class="button green" id="salvar" name="submit" type="submit">
+              Salvar
+            </button>
+            <button class="button blue"><a href="{{ url_for('index') }}">Cancelar</a></button>
+          </footer>
+          </form>
+        </div>
+      </div>
+
+</body>
+</html>

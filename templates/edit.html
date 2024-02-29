@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela Planilha</title>
+    <script
+      src="https://kit.fontawesome.com/7271b5d267.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+<body>
+<style>
+  a{
+  color:white;
+  text-decoration:none;
+  }
+    .rom{
+  display:none;
+  }
+ /*Comeca o modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000090;
+  }
+
+  .modal.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50vw;
+    height: 580px;
+    margin: 20px auto;
+    padding-bottom: 20px;
+    background-color: white;
+  }
+
+  .modal-header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+    background-color: #0f0f0f;
+  }
+  header h2 {
+    color: aliceblue;
+
+    font-size: 15px;
+  }
+
+  .modal-close {
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    background-color: aliceblue;
+  }
+
+  .modal-close:hover {
+    background-color: cadetblue;
+    color: white;
+  }
+
+  .modal-form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .modal-field {
+    width: calc(50% - 10px);
+    height: 20px;
+    outline-style: none;
+    border: none;
+    padding: 2px;
+    border-bottom: 1px solid;
+    outline: none;
+    text-align:center;
+  }
+
+  .modal-field::placeholder {
+    color: #ccc;
+  }
+
+  .modal-footer {
+    Position:absolute;
+    bottom: 150px;
+  }
+
+  .button {
+    border-style: none;
+    height: 40px;
+    padding: 6px 12px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: box-shadow 0.6s ease;
+  }
+
+  .button.blue {
+    background-color: cadetblue;
+  }
+
+  button.green {
+    background-color: #0f0f0f;
+  }
+
+  button.red {
+    background-color: cadetblue;
+  }
+
+  .button:hover {
+    box-shadow: inset 200px 0 0 #faf9f955;
+  }
+</style>
+ <div class="modal" id="modal">
+        <div class="modal-content">
+          <header class="modal-header">
+            <h2>Novo Cliente</h2>
+          </header>
+
+          <form class="modal-form" id="forms" action="{{ url_for('proses_edit') }}" method="POST">
+            <input type="hidden" class="rom"  name="id" value="{{ data.id }}">
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Nome do Cliente"
+              name="nome"
+              id="nomes"
+              value="{{ data.nome }}"
+              required
+            />
+            <input
+              type="email"
+              class="modal-field"
+              placeholder="e-mail do Cliente"
+              name="email"
+              id="emails"
+              value="{{ data.email }}"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Celular do Cliente"
+              name="celular"
+              id="celulars"
+              value="{{ data.celular }}"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Cep do Cliente"
+              name="cep"
+              id="ceps"
+              value="{{ data.cep }}"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="UF do Cliente"
+              name="uf"
+              id="ufs"
+              value="{{ data.uf }}"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Cidade do Cliente"
+              name="cidade"
+              id="cidades"
+              value="{{ data.cidade }}"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Bairro do Cliente"
+              name="bairro"
+              id="bairros"
+              value="{{ data.bairro }}"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Endereço do Cliente"
+              name="endereco"
+              id="enderecos"
+              value="{{ data.endereco }}"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              placeholder="Nº do Cliente"
+              name="numero"
+              id="numeros"
+              value="{{ data.numero }}"
+              required
+            />
+
+          <footer class="modal-footer">
+            <button  class="button green"  name="submit" type="submit">
+              Salvar
+            </button>
+            <button class="button blue"><a href="{{ url_for('index') }}">Cancelar</a></button>
+          </footer>
+          </form>
+
+        </div>
+      </div>
+</body>
+</html>
